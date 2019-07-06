@@ -5,20 +5,20 @@ var key = require("./keys");
 var axios = require("axios");
 
 var action = process.argv[2];
-var value = process.argv[3];
+var joinName = process.argv.slice(3).join(" ");
 
 
 switch (action) {
     case "concert-this":
-        concertThis();
+        concertThis(joinName);
         break;
 
     case "spotify-this-song":
-        spotifyThis();
+        spotifyThis(joinName);
         break;
 
     case "movie-this":
-        movieThis();
+        movieThis(joinName);
         break;
 
     case "do-what-it-says":
@@ -30,18 +30,31 @@ switch (action) {
 }
 
 
-// Create an empty variable for holding the movie name
-var movieName = "";
+//#3 
+
+function movieThis(movieName){
+    if(!movieName){
+        movieName="Mr. Nobody"
+    }
 
 // Then run a request with axios to the OMDB API with the movie specified
 var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
 // This line is just to help us debug against the actual URL.
-console.log(queryUrl);
+// console.log(queryUrl);
 
 axios.get(queryUrl).then(
-        function (response) {
-            console.log("Release Year: " + response.data.Year);
+        function(response){
+            console.log("-----------------------------------------------------------------");
+            console.log("Movie Title: "+response.data.Title);
+            console.log("Year: "+response.data.Year);
+            console.log("IMDB Rating: "+response.data.imdbRating);
+            console.log("Rotten Tomatoes Rating: "+response.data.Ratings[1].Value);
+            console.log("Country: "+response.data.Country);
+            console.log("Language: "+response.data.Language);
+            console.log("Plot: "+response.data.Plot);
+            console.log("Actors: "+response.data.Actors);
+            console.log("-----------------------------------------------------------------");
         })
     .catch(function (error) {
         if (error.response) {
@@ -63,3 +76,4 @@ axios.get(queryUrl).then(
         }
         console.log(error.config);
     });
+}

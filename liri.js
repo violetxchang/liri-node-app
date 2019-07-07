@@ -80,10 +80,12 @@ function spotifyThis(songName) {
         if (err) {
             return console.log("Error: " + err);
         }
+        console.log("------------------------------------------------------------------");
         console.log("Artist(s): " + data.tracks.items[0].artists[0].name);
-        console.log("Track Name: " + data.trackstracks.items[0].name);
-        console.log("Track Preview: " + data.tracks.items[0].album.external_urls.spotify);
+        console.log("Track Name: " + data.tracks.items[0].name);
+        console.log("Track Preview: " + data.tracks.items[0].preview_url);
         console.log("Album: " + data.tracks.items[0].album.name);
+        console.log("------------------------------------------------------------------");
     })
 }
 

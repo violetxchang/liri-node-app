@@ -139,27 +139,32 @@ function movieThis(movieName) {
 }
 
 //#4
-function doThis(){
+function doThis() {
 
 
-// This block of code will read from the "random.txt" file.
-// It's important to include the "utf8" parameter or the code will provide stream data (garbage)
-// The code will store the contents of the reading inside the variable "data"
-fs.readFile("random.txt", "utf8", function (error, data) {
+    // This block of code will read from the "random.txt" file.
+    // It's important to include the "utf8" parameter or the code will provide stream data (garbage)
+    // The code will store the contents of the reading inside the variable "data"
+    fs.readFile("random.txt", "utf8", function (error, data) {
 
-    // If the code experiences any errors it will log the error to the console.
-    if (error) {
-        return console.log(error);
-    }
+        // If the code experiences any errors it will log the error to the console.
+        if (error) {
+            return console.log(error);
+        }
 
-  // Break the string down by comma separation and store the contents into the output array.
-  var dataArray = data.split(",");
+        // Break the string down by comma separation and store the contents into the output array.
+        var dataArray = data.split(",");
 
-var command = dataArray[0];
-var input = dataArray[1];
+        //Loop through the newly created output array
+        for (var i = 0; i < dataArray.length; i++) {
 
-    // Print each element (item) of the array
-    console.log(output[i]);
+            var data1 = dataArray[0];
+            var data2 = dataArray[1];
 
-});
+            // Print each element (item) of the array
+            if(data1 === "spotify-this-song"){
+                spotifyThis(data2);
+            }
+        }
+    });
 }

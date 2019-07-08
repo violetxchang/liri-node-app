@@ -28,7 +28,13 @@ switch (action) {
         break;
 
     default:
-        console.log("No such value found.")
+        console.log("--------------------------------------------------------")
+        console.log("Input any of the following commands:")
+        console.log("1. node liri.js concert-this <artist/band name here>")
+        console.log("2. node liri.js spotify-this-song <song name here>")
+        console.log("3. node liri.js movie-this <movie name here>")
+        console.log("4. node liri.js do-what-it-says")
+        console.log("--------------------------------------------------------")
 }
 
 //#1
@@ -162,7 +168,7 @@ function doThis() {
             var data2 = dataArray[1];
 
             // Print each element (item) of the array
-            if(data1 === "spotify-this-song"){
+            if (data1 === "spotify-this-song") {
                 spotifyThis(data2);
             }
         }

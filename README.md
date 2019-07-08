@@ -15,6 +15,8 @@ This will search the Bands in Town Artist Events API for an artist and render th
 - Venue location
 - Date of the Event (use moment to format this as "MM/DD/YYYY")
 
+![concert-this example](./images/1.png)
+
 ### 2. node liri.js spotify-this-song [song name here]
 
 This will show the following information about the song in your terminal/bash window
@@ -25,6 +27,8 @@ This will show the following information about the song in your terminal/bash wi
 - The album that the song is from
 
 If no song is provided then your program will default to "The Sign" by Ace of Base.
+
+![concert-this example](./images/2.png)
 
 ### 3. node liri.js movie-this [movie name here]
 
@@ -39,16 +43,22 @@ This will output the following information to your terminal/bash window:
 - Plot of the movie.
 - Actors in the movie.
 
+![concert-this example](./images/3.png)
+
 ### 4. node liri.js do-what-it-says
 
 Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands. It should run spotify-this-song for "I Want it That Way, " as follows the text in random.txt. Edit the text in random.txt to test out the feature for movie-this and concert-this.
 
-## Link to Deployed App
+![concert-this example](./images/4.png)
+
+## Link to GitHub
+
+<https://github.com/violetxchang/liri-node-app>
 
 ## Technologies used in the app
 
 - javaScript
-- node. JS
+- node.JS
 - JSON
 
 ### Violet Chang - Developer
